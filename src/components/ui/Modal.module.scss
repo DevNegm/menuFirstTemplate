@@ -48,6 +48,7 @@
         border-radius: 5px;
         margin: 0 auto;
         overflow: hidden;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         &.slide-out {
             animation: slideOut 0.3s ease forwards;
         }
