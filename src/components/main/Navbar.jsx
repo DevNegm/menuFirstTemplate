@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 import { FaFacebookF, FaInstagram, FaPhone, FaTiktok } from 'react-icons/fa'
 const Navbar = () => {
   const data = [b1, b2, b3]
-  const [language, setLanguage] = useState('EN');
+  const [language, setLanguage] = useState('AR');
   return (
     <section className={classes.header}>
     <div className={classes.language}>
@@ -26,7 +26,6 @@ const Navbar = () => {
           className='select'
         >
          
-          <MenuItem value={'EN'}>English</MenuItem>
           <MenuItem value={'AR'}>العربية</MenuItem>
           <MenuItem value={'HE'}>עברית</MenuItem>
         </Select>
@@ -51,7 +50,7 @@ const Navbar = () => {
       </div>
       <div className={classes.headerText}>
         <img src={logo} alt="logo" />
-        <h3>Resturant Name</h3>
+        <h3>اسم المطعم</h3>
         <p className={classes.workinghours} style={{backgroundColor:'#7FB23C'}}>
             11:00 - 24:00 <CiClock1 />
         </p>

@@ -29,43 +29,53 @@ const Home = () => {
   return (
     <section className={classes.container}>
         <Modal data={data} showModal={showModal} setShowModal={setShowModal} />
-        <Link to={'#'} style={{backgroundColor:'#7FB23C'}}  className={classes.orderNow}>Order Now <FaBasketShopping /></Link>
+        {/* <Link to={'#'} style={{backgroundColor:'#7FB23C'}}  className={classes.orderNow}>Order Now <FaBasketShopping /></Link> */}
         <div className={classes.categories}>
             {Array(25).fill().map((_, index) => (
               <div className={classes.item} onClick={() => scrollTo('hehe')} key={index}>
                 <img src={ex} alt={index} />
-                <p>{index === 2 ? 'haha' : 'Category Name'}</p>
+                <p>{index === 2 ? 'لحوم' : index === 3 ? 'اسماك' : 'فراخ'}</p>
               </div>
             ))}
         </div>
         <div className={classes.itemsContainer} id='hehe'>
-              <h3>Category Name</h3>
+              <h3>اسم الصنف</h3>
               <div className={classes.items}>
                 {Array(10).fill().map((_, index) => (
                 <div className={classes.item} onClick={() => handleModal('test')} key={index}>
                   <img src={ex} alt={index} />
-                  <h4>dish name</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vel iure maiores velit eum</p>
-                  <p>Price: <span style={{color:'#7FB23C'}}>75.00$</span></p>
+                  <h4>اسم الوجبه</h4>
+                  <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
+                  <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
+                  <div style={{fontSize:'1.5rem',color:'red',padding:'0 1rem'}}>
+                  <span title='طعام حار'>&#x1F336;</span>
+                  <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
+                  <span title='يحتوي علي الجبن'>&#129472;</span>
+                  </div>
                 </div>
               ))}
               </div>
         </div>
         <div className={classes.itemsContainer}>
-              <h3>Category Name</h3>
+              <h3>اسم الصنف</h3>
               <div className={classes.items}>
                 {Array(5).fill().map((_, index) => (
                 <div className={classes.item} key={index}>
                   <img src={ex} alt={index} />
-                  <h4>dish name</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vel iure maiores velit eum</p>
-                  <p>Price: <span style={{color:'#7FB23C'}}>75.00$</span></p>
+                  <h4>اسم الوجبه</h4>
+                  <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
+                  <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
+                  <div style={{fontSize:'1.5rem',color:'red',padding:'0 1rem'}}>
+                  <span title='طعام حار'>&#x1F336;</span>
+                  <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
+                  <span title='يحتوي علي الجبن'>&#129472;</span>
+                  </div>
                 </div>
               ))}
               </div>
         </div>
         <div className={classes.itemsContainer}>
-              <h3>Category Name</h3>
+              <h3>اسم الصنف</h3>
               <div className={classes.items}>
                 {Array(8).fill().map((_, index) => (
                 <div className={classes.item} key={index}>
@@ -73,6 +83,11 @@ const Home = () => {
                   <h4>dish name</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vel iure maiores velit eum</p>
                   <p>Price: <span style={{color:'#7FB23C'}}>75.00$</span></p>
+                  <div style={{fontSize:'1.5rem',color:'red',padding:'0 1rem'}}>
+                  <span title='طعام حار'>&#x1F336;</span>
+                  <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
+                  <span title='يحتوي علي الجبن'>&#129472;</span>
+                  </div>
                 </div>
               ))}
               </div>

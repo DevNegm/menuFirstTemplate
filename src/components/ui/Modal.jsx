@@ -19,15 +19,16 @@ const Modal = ({data, showModal,setShowModal}) => {
                     <button style={{backgroundColor:'#7FB23C'}} className={classes.close} onClick={() => setShowModal(false)}><MdClose /></button>
                     <img src={ex} alt="example" />
                     <div className={classes.modalText}>
-                    <h3>Item Name</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ipsam. Voluptas reprehenderit veritatis magnam nulla odit, fugiat sint recusandae ab quam? Quam voluptate magni esse.</p>
+                    <h4>اسم الوجبه</h4>
+                  <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
+                  <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
                     <div className={classes.extras} >
-                        <button onClick={() => setOpenExtra(!openExtra)}>Extras <IoIosArrowDown style={{transform:openExtra && 'rotate(180deg)',transition:'all 250ms ease-in-out'}} /></button>
+                        <button onClick={() => setOpenExtra(!openExtra)}>الاضافات <IoIosArrowDown style={{transform:openExtra && 'rotate(180deg)',transition:'all 250ms ease-in-out'}} /></button>
                         { openExtra && <div className={classes.extrasContent}>
                         {Array(9).fill().map((_, index) => (
                             <div className={classes.item} key={index}>
-                                <p>Extra Name</p>
-                                <p>Price: <span style={{color:'#7FB23C'}}>2.00$</span></p>
+                                <p>اسم الاضافة</p>
+                                <p>السعر: <span style={{color:'#7FB23C'}}>2.00₪</span></p>
                             </div>
                         ))}
                         </div>}
