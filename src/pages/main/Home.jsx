@@ -46,8 +46,8 @@ const Home = () => {
                   <img src={ex} alt={index} />
                   <h4>اسم الوجبه</h4>
                   <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
-                  <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
-                  <div style={{fontSize:'1.5rem',color:'red',padding:'0 1rem'}}>
+                  <p>السعر: ابتداء من <span style={{color:'#7FB23C'}}>75.00₪</span></p>
+                  <div className={classes.icons}>
                   <span title='طعام حار'>&#x1F336;</span>
                   <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
                   <span title='يحتوي علي الجبن'>&#129472;</span>
@@ -64,8 +64,8 @@ const Home = () => {
                   <img src={ex} alt={index} />
                   <h4>اسم الوجبه</h4>
                   <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
-                  <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
-                  <div style={{fontSize:'1.5rem',color:'red',padding:'0 1rem'}}>
+                  <p>السعر: ابتداء من <span style={{color:'#7FB23C'}}>75.00₪</span></p>
+                  <div className={classes.icons}>
                   <span title='طعام حار'>&#x1F336;</span>
                   <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
                   <span title='يحتوي علي الجبن'>&#129472;</span>
@@ -80,10 +80,10 @@ const Home = () => {
                 {Array(8).fill().map((_, index) => (
                 <div className={classes.item} key={index}>
                   <img src={ex} alt={index} />
-                  <h4>dish name</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vel iure maiores velit eum</p>
-                  <p>Price: <span style={{color:'#7FB23C'}}>75.00$</span></p>
-                  <div style={{fontSize:'1.5rem',color:'red',padding:'0 1rem'}}>
+                  <h4>اسم الوجبه</h4>
+                  <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
+                  <p>السعر: ابتداء من <span style={{color:'#7FB23C'}}>75.00₪</span></p>
+                  <div className={classes.icons}>
                   <span title='طعام حار'>&#x1F336;</span>
                   <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
                   <span title='يحتوي علي الجبن'>&#129472;</span>
