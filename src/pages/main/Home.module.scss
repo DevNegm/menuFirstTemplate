@@ -42,10 +42,11 @@
         overflow-x: auto;
         padding: 0 5rem;
         mask-image: linear-gradient(to right, transparent, #000 5% 95%, transparent);
-
+        border-bottom: 3px solid #c0c0c044;
         &::-webkit-scrollbar {
             display: none;
         }
+
         .item {
             display: flex;
             flex-direction: column;
@@ -56,6 +57,7 @@
             color: #000;
             padding-bottom: 2rem;
             min-width: max-content;
+            
             &:hover {
                 color: --color;
             }

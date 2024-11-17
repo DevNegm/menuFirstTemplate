@@ -46,12 +46,16 @@ const Home = () => {
                   <img src={ex} alt={index} />
                   <h4>اسم الوجبه</h4>
                   <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
-                  <p>السعر: ابتداء من <span style={{color:'#7FB23C'}}>75.00₪</span></p>
                   <div className={classes.icons}>
-                  <span title='طعام حار'>&#x1F336;</span>
+                  <span title='طعام حار'>&#x1f336;</span>
                   <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
                   <span title='يحتوي علي الجبن'>&#129472;</span>
+                  <span title='حار جدا'>&#128293;</span>
+                  <span title='نباتي'>&#x1F331;</span>
+                  <span title='مناسب للاطفال'>&#129490;</span>
                   </div>
+                  <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
+                 
                 </div>
               ))}
               </div>
@@ -60,16 +64,20 @@ const Home = () => {
               <h3>اسم الصنف</h3>
               <div className={classes.items}>
                 {Array(5).fill().map((_, index) => (
-                <div className={classes.item} key={index}>
+                  <div className={classes.item} onClick={() => handleModal('test')} key={index}>
                   <img src={ex} alt={index} />
                   <h4>اسم الوجبه</h4>
                   <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
-                  <p>السعر: ابتداء من <span style={{color:'#7FB23C'}}>75.00₪</span></p>
                   <div className={classes.icons}>
-                  <span title='طعام حار'>&#x1F336;</span>
+                  <span title='طعام حار'>&#x1f336;</span>
                   <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
                   <span title='يحتوي علي الجبن'>&#129472;</span>
+                  <span title='حار جدا'>&#128293;</span>
+                  <span title='نباتي'>&#x1F331;</span>
+                  <span title='مناسب للاطفال'>&#129490;</span>
                   </div>
+                  <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
+                 
                 </div>
               ))}
               </div>
@@ -78,16 +86,20 @@ const Home = () => {
               <h3>اسم الصنف</h3>
               <div className={classes.items}>
                 {Array(8).fill().map((_, index) => (
-                <div className={classes.item} key={index}>
+                  <div className={classes.item} onClick={() => handleModal('test')} key={index}>
                   <img src={ex} alt={index} />
                   <h4>اسم الوجبه</h4>
                   <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
-                  <p>السعر: ابتداء من <span style={{color:'#7FB23C'}}>75.00₪</span></p>
                   <div className={classes.icons}>
-                  <span title='طعام حار'>&#x1F336;</span>
+                  <span title='طعام حار'>&#x1f336;</span>
                   <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
                   <span title='يحتوي علي الجبن'>&#129472;</span>
+                  <span title='حار جدا'>&#128293;</span>
+                  <span title='نباتي'>&#x1F331;</span>
+                  <span title='مناسب للاطفال'>&#129490;</span>
                   </div>
+                  <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
+                 
                 </div>
               ))}
               </div>
