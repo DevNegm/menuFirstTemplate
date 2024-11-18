@@ -74,7 +74,7 @@ const Navbar = () => {
     </Swiper>
       </div>
       <div className={classes.headerText}>
-        <img src={logo} alt="logo" />
+        <img src={logo} style={{border:'5px solid #7FB23C'}} alt="logo" />
         <h3>اسم المطعم</h3>
         <p className={classes.workinghours} onClick={() => {setShowModal(!showModal)}} style={{backgroundColor:'#7FB23C'}}>
             11:00 - 24:00 <CiClock1 />
