@@ -53,7 +53,7 @@ const Home = () => {
                   <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
                   <span title='يحتوي علي الجبن'>&#129472;</span>
                   <span title='حار جدا'>&#128293;</span>
-                  <span title='نباتي'>&#x1F331;</span>
+                  <span title='نباتي'><FaLeaf style={{color:'green'}} /></span>
                   <span title='مناسب للاطفال'>&#129490;</span>
                   </div>
                   <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
@@ -72,11 +72,11 @@ const Home = () => {
                   <p>بيتزا مارغريتا بجبنة الموتزريلا والطماطم</p>
                   <div className={classes.icons}>
                   <span title='طعام حار'><FaPepperHot style={{color:'#B80E0B'}} /></span>
-                  <span title='يقدم مع البطاطا المقلية'><GiFrenchFries style={{color:'orange'}} /></span>
-                  <span title='يحتوي علي الجبن'><BiCheese style={{color:'yellow'}} /></span>
-                  <span title='حار جدا'><FaFire style={{color:'orange'}} /></span>
+                  <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
+                  <span title='يحتوي علي الجبن'>&#129472;</span>
+                  <span title='حار جدا'>&#128293;</span>
                   <span title='نباتي'><FaLeaf style={{color:'green'}} /></span>
-                  <span title='مناسب للاطفال'><FaBaby /></span>
+                  <span title='مناسب للاطفال'>&#129490;</span>
                   </div>
                   <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
                  
@@ -97,7 +97,7 @@ const Home = () => {
                   <span title='يقدم مع البطاطا المقلية'>&#127839;</span>
                   <span title='يحتوي علي الجبن'>&#129472;</span>
                   <span title='حار جدا'>&#128293;</span>
-                  <span title='نباتي'>&#x1F331;</span>
+                  <span title='نباتي'><FaLeaf style={{color:'green'}} /></span>
                   <span title='مناسب للاطفال'>&#129490;</span>
                   </div>
                   <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
