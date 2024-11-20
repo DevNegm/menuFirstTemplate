@@ -100,13 +100,17 @@
             color: white;
         }
         .workinghours {
+            all: unset;
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #fff;
             padding: 5px 10px;
             border-radius: 25px;
-            cursor: pointer;
+            color: #fff;
+            svg {
+                margin: 0 !important;
+            }
            
         }
         .social {

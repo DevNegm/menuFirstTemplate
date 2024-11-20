@@ -7,13 +7,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import logo from '../../assets/logo.jpg'
-import { CiClock1 } from 'react-icons/ci'
 import { FormControl, MenuItem, Select } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { FaFacebookF, FaInstagram, FaPhone, FaTiktok } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMain } from '../../store/slices/mainReducer'
+import { IoTimeOutline } from 'react-icons/io5'
 
 const Navbar = () => {
   const { mainData, mainLoading, mainError } = useSelector((state) => state.main);
@@ -39,13 +39,13 @@ useEffect(() => {
         showModal && <div className={classes.modal} onClick={handleClose}>
           <div className={classes.modalContent} style={{backgroundColor:'#7FB23C'}}>
             <button className={classes.close} onClick={() => setShowModal(false)}><MdClose /></button>
-              <p>الجمعة 11:00 - 24:00 <CiClock1 /> </p>
-              <p>السبت 11:00 - 24:00 <CiClock1 /> </p>
-              <p>الاحد 11:00 - 24:00 <CiClock1 /> </p>
-              <p>الاثنين 11:00 - 24:00 <CiClock1 /> </p>
-              <p>الثلاثاء  11:00 - 24:00 <CiClock1 /> </p>
-              <p>الاربعاء 11:00 - 24:00 <CiClock1 /> </p>
-              <p>الخميس 11:00 - 24:00 <CiClock1 /> </p>
+              <p>الجمعة 11:00 - 24:00 <IoTimeOutline /> </p>
+              <p>السبت 11:00 - 24:00 <IoTimeOutline /> </p>
+              <p>الاحد 11:00 - 24:00 <IoTimeOutline /> </p>
+              <p>الاثنين 11:00 - 24:00 <IoTimeOutline /> </p>
+              <p>الثلاثاء  11:00 - 24:00 <IoTimeOutline /> </p>
+              <p>الاربعاء 11:00 - 24:00 <IoTimeOutline /> </p>
+              <p>الخميس 11:00 - 24:00 <IoTimeOutline /> </p>
           </div>
         </div>
       }
@@ -84,9 +84,9 @@ useEffect(() => {
       <div className={classes.headerText}>
         <img src={logo} style={{border:'5px solid #7FB23C'}} alt="logo" />
         <h3>اسم المطعم</h3>
-        <div className={classes.workinghours} onClick={() => {setShowModal(!showModal)}} style={{backgroundColor:'#7FB23C'}}>
-            <p>11:00 - 24:00</p> <CiClock1 />
-        </div>
+        <button className={classes.workinghours} onClick={() => {setShowModal(!showModal)}} style={{backgroundColor:'#7FB23C'}}>
+            11:00 - 24:00 <IoTimeOutline />
+        </button>
         <div className={classes.social} style={{'--color': '#7FB23C'}}>
             <Link to='/'><FaFacebookF/> <p>Facebook</p></Link>
             <Link to='/'><FaInstagram/> <p>Instagram</p></Link>
