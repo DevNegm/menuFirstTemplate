@@ -54,7 +54,7 @@ const Home = () => {
                   <span title='يحتوي علي الجبن'>&#129472;</span>
                   <span title='حار جدا'>&#128293;</span>
                   <span title='نباتي'><FaLeaf style={{color:'green'}} /></span>
-                  <span title='مناسب للاطفال'>&#129490;</span>
+                  <span title='مناسب للاطفال'>👦🏻</span>
                   </div>
                   <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
                  
@@ -76,7 +76,7 @@ const Home = () => {
                   <span title='يحتوي علي الجبن'>&#129472;</span>
                   <span title='حار جدا'>&#128293;</span>
                   <span title='نباتي'><FaLeaf style={{color:'green'}} /></span>
-                  <span title='مناسب للاطفال'>&#129490;</span>
+                  <span title='مناسب للاطفال'>👦🏻</span>
                   </div>
                   <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
                  
@@ -98,7 +98,7 @@ const Home = () => {
                   <span title='يحتوي علي الجبن'>&#129472;</span>
                   <span title='حار جدا'>&#128293;</span>
                   <span title='نباتي'><FaLeaf style={{color:'green'}} /></span>
-                  <span title='مناسب للاطفال'>&#129490;</span>
+                  <span title='مناسب للاطفال'>👦🏻</span>
                   </div>
                   <p>السعر: <span style={{color:'#7FB23C'}}>75.00₪</span></p>
                  

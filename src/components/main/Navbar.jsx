@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './Navbar.module.scss'
 import b1 from '../../assets/images.jpeg'
 import b2 from '../../assets/b2.jpg'
@@ -12,12 +12,15 @@ import { FormControl, MenuItem, Select } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { FaFacebookF, FaInstagram, FaPhone, FaTiktok } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
+import { useDispatch, useSelector } from 'react-redux'
+import { getMain } from '../../store/slices/mainReducer'
 
 const Navbar = () => {
+  const { mainData, mainLoading, mainError } = useSelector((state) => state.main);
   const data = [b1, b2, b3]
   const [language, setLanguage] = useState('AR');
   const [showModal, setShowModal] = useState(false)
-
+  const dispatch = useDispatch()
   const handleClose = (e) => {
     if (e.target.classList.contains(classes.modal)) {
         setShowModal(false);
@@ -25,6 +28,11 @@ const Navbar = () => {
     }
 };
 
+useEffect(() => {
+  dispatch(getMain())
+}, [])
+
+  console.log(mainData)
   return (
     <section className={classes.header}>
       {
@@ -76,9 +84,9 @@ const Navbar = () => {
       <div className={classes.headerText}>
         <img src={logo} style={{border:'5px solid #7FB23C'}} alt="logo" />
         <h3>اسم المطعم</h3>
-        <p className={classes.workinghours} onClick={() => {setShowModal(!showModal)}} style={{backgroundColor:'#7FB23C'}}>
-            11:00 - 24:00 <CiClock1 />
-        </p>
+        <div className={classes.workinghours} onClick={() => {setShowModal(!showModal)}} style={{backgroundColor:'#7FB23C'}}>
+            <p>11:00 - 24:00</p> <CiClock1 />
+        </div>
         <div className={classes.social} style={{'--color': '#7FB23C'}}>
             <Link to='/'><FaFacebookF/> <p>Facebook</p></Link>
             <Link to='/'><FaInstagram/> <p>Instagram</p></Link>
