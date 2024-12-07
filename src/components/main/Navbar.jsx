@@ -6,19 +6,20 @@ import b3 from '../../assets/b3.jpg'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import logo from '../../assets/logo.jpg'
 import { FormControl, MenuItem, Select } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { FaFacebookF, FaInstagram, FaPhone, FaTiktok } from 'react-icons/fa'
+import { FaFacebookF, FaGlobe, FaInstagram, FaPhone, FaPinterest, FaTiktok, FaYoutube } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
-import { getMain } from '../../store/slices/mainReducer'
 import { IoTimeOutline } from 'react-icons/io5'
+import { getMainData } from '../../store/slices/mainReducer'
+import { useLanguage } from '../../context/LanguageContext'
+import { translate } from '../../utils/translations'
 
 const Navbar = () => {
-  const { mainData, mainLoading, mainError } = useSelector((state) => state.main);
-  const data = [b1, b2, b3]
-  const [language, setLanguage] = useState('AR');
+  const { mainDataLoading } = useSelector((state) => state.main);
+  const [data, setData] = useState([b1, b2, b3])
+  const {language,changeLanguage} = useLanguage()
   const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
   const handleClose = (e) => {
@@ -28,24 +29,49 @@ const Navbar = () => {
     }
 };
 
+
 useEffect(() => {
-  dispatch(getMain())
+  dispatch(getMainData()).then((res) => {
+    setData(res.payload?.results[0]);
+  })
 }, [])
 
-  console.log(mainData)
   return (
     <section className={classes.header}>
       {
         showModal && <div className={classes.modal} onClick={handleClose}>
-          <div className={classes.modalContent} style={{backgroundColor:'#7FB23C'}}>
+          <div className={classes.modalContent} style={{backgroundColor:data?.primary_color ? data?.primary_color : '#7FB23C'}}>
             <button className={classes.close} onClick={() => setShowModal(false)}><MdClose /></button>
-              <p>الجمعة 11:00 - 24:00 <IoTimeOutline /> </p>
-              <p>السبت 11:00 - 24:00 <IoTimeOutline /> </p>
-              <p>الاحد 11:00 - 24:00 <IoTimeOutline /> </p>
-              <p>الاثنين 11:00 - 24:00 <IoTimeOutline /> </p>
-              <p>الثلاثاء  11:00 - 24:00 <IoTimeOutline /> </p>
-              <p>الاربعاء 11:00 - 24:00 <IoTimeOutline /> </p>
-              <p>الخميس 11:00 - 24:00 <IoTimeOutline /> </p>
+              <p>
+                {translate("friday", language)} {' '}
+                {data?.opening_time} - {data?.closing_time}
+                <IoTimeOutline />
+              </p>
+              <p>
+              {translate("saturday", language)} {' '}
+                {data?.opening_time} - {data?.closing_time}
+                <IoTimeOutline />
+              </p>
+              <p>
+              {translate("sunday", language)} {' '}
+                {data?.opening_time} - {data?.closing_time} <IoTimeOutline />{" "}
+              </p>
+              <p>
+              {translate("monday", language)} {' '}
+                {data?.opening_time} - {data?.closing_time} <IoTimeOutline />{" "}
+              </p>
+              <p>
+              {translate("tuesday", language)} {' '}
+                {data?.opening_time} - {data?.closing_time} <IoTimeOutline />{" "}
+              </p>
+              <p>
+              {translate("wednesday", language)} {' '}
+                {data?.opening_time} - {data?.closing_time} <IoTimeOutline />{" "}
+              </p>
+              <p>
+              {translate("thursday", language)} {' '}
+                {data?.opening_time} - {data?.closing_time} <IoTimeOutline />{" "}
+              </p>
           </div>
         </div>
       }
@@ -53,14 +79,13 @@ useEffect(() => {
     <FormControl sx={{minWidth:110}}>
         <Select
           value={language}
-          onChange={(e) => setLanguage(e.target.value)}
+          onChange={(e) => changeLanguage(e.target.value)}
           inputProps={{ 'aria-label': 'Without label' }}
           size='small'
           className='select'
         >
-         
-          <MenuItem value={'AR'}>العربية</MenuItem>
-          <MenuItem value={'HE'}>עברית</MenuItem>
+          <MenuItem value={'ar'}>العربية</MenuItem>
+          <MenuItem value={'he'}>עברית</MenuItem>
         </Select>
       </FormControl>
     </div>
@@ -76,22 +101,31 @@ useEffect(() => {
             disableOnInteraction: false
         }}
       >
-      {data.map((item, index) =>
-      <SwiperSlide><img className={classes.image} src={item} alt={index} /></SwiperSlide>
+      {data?.header_images?.map((item, index) =>
+      <SwiperSlide><img className={classes.image} src={item?.image} alt={index} /></SwiperSlide>
       )}
     </Swiper>
       </div>
       <div className={classes.headerText}>
-        <img src={logo} style={{border:'5px solid #7FB23C'}} alt="logo" />
-        <h3>اسم المطعم</h3>
-        <button className={classes.workinghours} onClick={() => {setShowModal(!showModal)}} style={{backgroundColor:'#7FB23C'}}>
-            11:00 - 24:00 <IoTimeOutline />
+        <img src={data?.image ? data?.image : "https://via.placeholder.com/150"} style={{border:`5px solid ${data?.primary_color ? data?.primary_color : "#7FB23C"}`}} alt="logo" />
+        <h3>{data?.[`name_${language}`]}</h3>
+        <button className={classes.workinghours} onClick={() => {setShowModal(!showModal)}} style={{backgroundColor:data?.primary_color ? data?.primary_color : '#7FB23C'}}>
+          {data?.opening_time} - {data?.closing_time} <IoTimeOutline />
         </button>
-        <div className={classes.social} style={{'--color': '#7FB23C'}}>
-            <Link to='/'><FaFacebookF/> <p>Facebook</p></Link>
-            <Link to='/'><FaInstagram/> <p>Instagram</p></Link>
-            <Link to='/'><FaTiktok/> <p>Tiktok</p></Link>
-            <Link to='/'><FaPhone style={{transform:'rotateY(180deg)'}} />  <p>Phone</p></Link>
+        <div className={classes.social}>
+          {data?.social_media_links?.map((item) => (
+              <Link to={item?.url} key={item?.id} 
+                onMouseEnter={(e) => (e.target.style.color = data?.primary_color ? data?.primary_color : "#B57EDC")}
+                onMouseLeave={(e) => (e.target.style.color = "#fff")}
+                target='_blank'>
+                {item?.platform == 'facebook' && <FaFacebookF />}
+                {item?.platform == 'youtube' && <FaYoutube />}
+                {item?.platform == 'tiktok' && <FaTiktok />}
+                {item?.platform == 'pinterest' && <FaPinterest />}
+                {item?.platform == 'instagram' && <FaInstagram />}
+                {!item?.platform  && <FaGlobe />}
+              </Link>
+            ))}
         </div>
       </div>
     </section>

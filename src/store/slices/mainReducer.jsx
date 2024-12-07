@@ -1,56 +1,65 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://onlymeus.pythonanywhere.com/api";
+const BASE_URL = "https://onlymeus.pythonanywhere.com/api/menus";
 
-
+export const getMainData = createAsyncThunk(
+    "main/maindata/get",
+    async (body, { getState, rejectWithValue }) => {
+          try {
+            const response = await axios.get(
+              `${BASE_URL}/restaurants/`
+          );
+          return response.data;
+        } catch (error) {
+          if (error.response && error.response.data) {
+              return rejectWithValue(error.response.data);
+          } else {
+              return rejectWithValue(error.message);
+          }
+      }
+  });
+  
 export const getCategories = createAsyncThunk(
     "main/categories/get",
-    async (id,{ rejectWithValue }) => {
-      try {
-        const response = await axios.get(`${BASE_URL}/restaurant/category/`);
-        return response.data;
-      } catch (error) {
-        if (error.response && error.response.data) {
-          return rejectWithValue(error.response.data);
-        } else {
-          return rejectWithValue(error.message);
-        }
+    async (body, { getState, rejectWithValue }) => {
+          try {
+            const response = await axios.get(
+              `${BASE_URL}/categories/`
+          );
+          return response.data;
+        } catch (error) {
+          if (error.response && error.response.data) {
+              return rejectWithValue(error.response.data);
+          } else {
+              return rejectWithValue(error.message);
+          }
       }
-    }
-  );
-export const getMain = createAsyncThunk(
-    "main/maindata/get",
-    async (id,{ rejectWithValue }) => {
-      try {
-        const response = await axios.get(`${BASE_URL}/restaurant/restaurant/`);
-        return response.data;
-      } catch (error) {
-        if (error.response && error.response.data) {
-          return rejectWithValue(error.response.data);
-        } else {
-          return rejectWithValue(error.message);
-        }
-      }
-    }
-  );
-
-
-
+  });
 
 export const mainSlice = createSlice({
     name: 'main',
     initialState: {
-        categories: [],
-        categoriesLoading: false,
-        categoriesError: false,
-        mainData: [],
-        mainLoading: false,
-        mainError: false,
-        
+        categoriesLoading:false,
+        categoriesError:false,
+        mainDataLoading:false,
+        mainDataError:false,
     },
     reducers: {},
     extraReducers: (builder) => {
+        
+          builder.addCase(getMainData.pending, (state) => {
+            state.mainDataLoading = true;
+            state.mainDataError = false;
+          });
+          builder.addCase(getMainData.fulfilled, (state, action) => {
+            state.mainDataLoading = false;
+            state.mainDataError = false;
+          });
+          builder.addCase(getMainData.rejected, (state, action) => {
+            state.mainDataLoading = false;
+            state.mainDataError = action.payload
+          });
           builder.addCase(getCategories.pending, (state) => {
             state.categoriesLoading = true;
             state.categoriesError = false;
@@ -58,30 +67,11 @@ export const mainSlice = createSlice({
           builder.addCase(getCategories.fulfilled, (state, action) => {
             state.categoriesLoading = false;
             state.categoriesError = false;
-            state.categories = action.payload;
           });
           builder.addCase(getCategories.rejected, (state, action) => {
             state.categoriesLoading = false;
-            state.categoriesError = action.payload ;
+            state.categoriesError = action.payload
           });
-          builder.addCase(getMain.pending, (state) => {
-            state.mainLoading = true;
-            state.mainError = false;
-          });
-          builder.addCase(getMain.fulfilled, (state, action) => {
-            state.mainLoading = false;
-            state.mainError = false;
-            state.mainData = action.payload;
-          });
-          builder.addCase(getMain.rejected, (state, action) => {
-            state.mainLoading = false;
-            state.mainError = action.payload ;
-          });
-       
-          
-         
-     
-  
       },
 })
 

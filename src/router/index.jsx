@@ -4,7 +4,7 @@ import { CircularProgress } from "@mui/material";
 import UnprotectedRoute from "./UnprotectedRoute.jsx";
 import Error from "../pages/Error.jsx"; 
 import MainLayout from "../components/layouts/MainLayout.jsx";
-
+import errorImage from '../assets/error.jpg'
 const lazyRetry = function (componentImport) {
     return new Promise((resolve, reject) => {
         componentImport()
@@ -37,11 +37,32 @@ const Loading = (
     </div>
 );
 
-
-// auth pages
-const Signin = lazy(() =>
-    lazyRetry(() => import("../pages/auth/Login.jsx"))
+const ErrorFallback = (
+    <div
+        style={{
+            position:'fixed',
+            left:0  ,
+            top:0,
+            zIndex:999,
+            display: "flex",
+            flexDirection: "column",
+            gap:'1rem',
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            height: "100vh",
+            backgroundColor:'#fff'
+        }}
+    >   
+     <div className='errorContainer'>
+        <img src={errorImage} alt="Sorry, The page not found" />
+            <h4>عفوا حدث خطأ ما</h4>
+            <p>نعمل على اصلاح هذة المشكلة في اسرع وقت</p>
+        </div>
+    </div>
 );
+
+
 
 
 
@@ -57,17 +78,8 @@ const Home = lazy(() =>
 
 const router = createBrowserRouter([
     {
-        path: "auth",
-        errorElement:Loading,
-        element: <UnprotectedRoute>
-            <Suspense fallback={Loading}>
-                <Signin />
-            </Suspense>
-        </UnprotectedRoute>,     
-    },
-    {
         path: "",
-        errorElement: Loading,
+        errorElement: ErrorFallback,
         element: <MainLayout />,
         children: [
             {
