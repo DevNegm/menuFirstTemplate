@@ -34,14 +34,14 @@ const Modal = ({item, showModal,setShowModal,mainData}) => {
                     </div>
                     
                   <p>{item?.[`description_${language}`]}</p>
-                  <p>{translate('price',language)} : <span style={{color:mainData?.primary_color ? mainData?.primary_color : '#7FB23C'}}>75.00₪</span></p>
+                  <p>{translate('price',language)} : <span style={{color:mainData?.primary_color ? mainData?.primary_color : '#7FB23C'}}>{item?.price}₪</span></p>
                     <div className={classes.extras} >
                         <button onClick={() => setOpenExtra(!openExtra)}>{translate('extras',language)} <IoIosArrowDown style={{transform:openExtra && 'rotate(180deg)',transition:'all 250ms ease-in-out'}} /></button>
                         { openExtra && <div className={classes.extrasContent}>
                         {item?.variants?.map((item, index) => (
                             <div className={classes.item} key={index}>
                                 <p>{item?.[`name_${language}`]}</p>
-                                <p>{translate('price',language)} : <span style={{color:mainData?.primary_color ? mainData?.primary_color : '#7FB23C'}}>2.00₪</span></p>
+                                <p>{translate('price',language)} : <span style={{color:mainData?.primary_color ? mainData?.primary_color : '#7FB23C'}}>{item?.price}₪</span></p>
                             </div>
                         ))}
                         </div>}
